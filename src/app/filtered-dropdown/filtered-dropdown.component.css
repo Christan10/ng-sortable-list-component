@@ -1,0 +1,41 @@
+.darkblue-background {
+    background-color: darkblue;
+    color: white;
+  }
+  
+  .grey-background {
+    background-color: lightgray;
+    color: darkblue;
+  }
+
+  .dropdown {
+    cursor: pointer;
+  }
+  
+  .dropdown li {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dropdown li:hover {
+    background-color: lightgray;
+    color: darkblue;
+  }
+
+  .dropdown-caret {
+    display: inline-block;
+    color: darkblue;
+  }
+
+  .custom-input {
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+  }
+
+  .clear-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    z-index: 100;
+    margin-left: -40px;
+}

@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+    color: darkblue;
+    font-weight: bold;
+}
+
+/* .skills {
+    margin: 0 0 2em 0;
+    padding:0;
+    width: 15em;
+}
+.skills li {
+    display: flex;
+}
+
+.skills button {
+    flex: 1;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: darkblue;
+    color: aliceblue;
+    margin: .5em;
+    padding: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: stretch;
+    height: 1.8em;
+}
+
+.skills button:hover {
+    color:white;
+    background-color: grey;
+    left: .1em;
+} */
+
+/* .skills .name {
+    align-self: center;
+    text-align: center;
+} */
+
+/* .input-group input {
+    background-color: darkblue;
+    color: aliceblue;
+    border-radius: 5px;
+} */
+
+
