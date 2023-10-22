@@ -2,10 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <ng-container *ngFor="let index of dropdownCountArray">
-        <app-filtered-dropdown 
-          [options]="skills" 
-          (skillSelected)="onSkillSelected($event)" 
+      <ng-container *ngFor="let skill of selectedSkills; let i = index">
+        <app-filtered-dropdown
+          [options]="skills"
+          (skillSelected)="onSkillSelected($event)"
           (clearSelectedOption)="onClearSkill($event)">
         </app-filtered-dropdown>
       </ng-container>
@@ -16,5 +16,5 @@
         <li *ngFor="let skill of skills">{{ skill.name }}</li>
       </ul>
     </div>
-  </div>  
+  </div>
 </div>
