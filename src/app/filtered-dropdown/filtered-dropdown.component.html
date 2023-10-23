@@ -2,7 +2,6 @@
   <input class="custom-input" [(ngModel)]="filter" (input)="filterOptions()" placeholder="Type a skill" 
         [ngClass]="{'darkblue-background': isOptionSelected, 'grey-background': !isOptionSelected}">
   <button type="button" (click)="onClearSelectedOption()" *ngIf="isOptionSelected" class="btn bg-transparent clear-button">x</button>
-  <i class="dropdown-caret" *ngIf="!inputEmpty"></i>
   <ul class="dropdown" [hidden]="inputEmpty">
     <li *ngFor="let option of filteredOptions" (click)="onSelectOption(option)">{{ option.name }}</li>
   </ul>

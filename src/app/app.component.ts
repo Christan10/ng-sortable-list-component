@@ -13,9 +13,9 @@ export class AppComponent {
   title = 'ng-sortable-list-component';
 
   onSkillSelected(selectedSkill: Skill) {
-    this.skills = this.skills.filter(skill => skill !== selectedSkill)
     if (this.selectedSkills.length < this.maxDropdowns) {
       this.selectedSkills.push(selectedSkill);
+      this.skills = this.skills.filter(skill => skill !== selectedSkill)
     }
   }
 
@@ -24,6 +24,7 @@ export class AppComponent {
       const isSkillAvailable = this.skills.some(skill => skill.name === clearedSkill.name);
       if (!isSkillAvailable){
         this.skills.push(clearedSkill);
+        this.skills.sort((a, b) => a.id - b.id);
       }
       this.selectedSkills = this.selectedSkills.filter(skill => skill !== clearedSkill);
     }
