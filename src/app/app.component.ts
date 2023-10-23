@@ -9,13 +9,13 @@ import { Skill, dataset } from './data';
 export class AppComponent {
   skills: Skill[] = dataset;
   maxDropdowns = 5;
-  selectedSkills: Skill[] = [null];
+  selectedSkills: Skill[] = [];
   title = 'ng-sortable-list-component';
 
   onSkillSelected(selectedSkill: Skill) {
     this.skills = this.skills.filter(skill => skill !== selectedSkill)
     if (this.selectedSkills.length < this.maxDropdowns) {
-      this.selectedSkills.push(null);
+      this.selectedSkills.push(selectedSkill);
     }
   }
 
