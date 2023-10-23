@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Skill, dataset } from './data';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,10 @@ export class AppComponent {
 
   shouldEnableInput(index: number): boolean {
     const emptyIndex = this.selectedSkills.findIndex(skill => !skill);
-  return emptyIndex === -1 || emptyIndex === index;
+    return emptyIndex === -1 || emptyIndex === index;
+  }
+
+  onDrop(event: CdkDragDrop<Skill[]>) {
+    moveItemInArray(this.selectedSkills, event.previousIndex, event.currentIndex);
   }
 }

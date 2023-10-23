@@ -2,21 +2,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <ng-container *ngFor="let index of dropdownCountArray; let i = index">
-        <app-filtered-dropdown
-          [options]="skills"
-          (skillSelected)="onSkillSelected($event)"
-          (clearSelectedOption)="onClearSkill($event)"
-          [selectedOptionFromParent]="selectedSkills[i]"
-          [inputEnabled]="shouldEnableInput(i)"
-        >
-        </app-filtered-dropdown>
-      </ng-container>
+      <div cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div *ngFor="let index of dropdownCountArray; let i = index" cdkDrag>
+          <app-filtered-dropdown
+            [options]="skills"
+            (skillSelected)="onSkillSelected($event)"
+            (clearSelectedOption)="onClearSkill($event)"
+            [selectedOptionFromParent]="selectedSkills[i]"
+            [inputEnabled]="shouldEnableInput(i)"
+            >
+          </app-filtered-dropdown>
+        </div>
+      </div>
     </div>
     <div class="col-md-6">
       <h4>Suggested Skills</h4>
       <ul>
-        <li *ngFor="let skill of skills" (click)="onSkillSelected(skill)">{{ skill.name }}</li>
+        <li *ngFor="let skill of skills" (click)="onSkillSelected(skill)">&plus; {{ skill.name }}</li>
       </ul>
     </div>
   </div>
