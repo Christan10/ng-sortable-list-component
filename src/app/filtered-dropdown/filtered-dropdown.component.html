@@ -1,5 +1,5 @@
 <div>
-  <input class="custom-input" [(ngModel)]="filter" (input)="filterOptions()" placeholder="Type a skill" 
+  <input class="custom-input" [(ngModel)]="filter" (input)="filterOptions()" placeholder="Search a skill" 
         [ngClass]="{'darkblue-background': isOptionSelected, 'grey-background': !isOptionSelected}">
   <button type="button" (click)="onClearSelectedOption()" *ngIf="isOptionSelected" class="btn bg-transparent clear-button">x</button>
   <ul class="dropdown" [hidden]="inputEmpty">
