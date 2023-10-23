@@ -17,8 +17,8 @@ h1{
 }
 
 ul {
-    list-style: none; /* Remove bullet points */
-    cursor: pointer; /* Add cursor pointer */
+    list-style: none;
+    cursor: pointer;
 }
 
 li:hover {
