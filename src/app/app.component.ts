@@ -8,25 +8,31 @@ import { Skill, dataset } from './data';
 })
 export class AppComponent {
   skills: Skill[] = dataset;
-  maxDropdowns = 5;
-  selectedSkills: Skill[] = [];
+  selectedSkills: Skill[] = Array(5).fill(null);
+  dropdownCountArray = [1, 2, 3, 4, 5];
   title = 'ng-sortable-list-component';
 
   onSkillSelected(selectedSkill: Skill) {
-    if (this.selectedSkills.length < this.maxDropdowns) {
-      this.selectedSkills.push(selectedSkill);
+    const emptyIndex = this.selectedSkills.findIndex((skill) => !skill);
+    if (emptyIndex !== -1) {
+      this.selectedSkills[emptyIndex] = selectedSkill;
       this.skills = this.skills.filter(skill => skill !== selectedSkill)
     }
   }
 
   onClearSkill(clearedSkill: Skill){
     if (clearedSkill) {
-      const isSkillAvailable = this.skills.some(skill => skill.name === clearedSkill.name);
-      if (!isSkillAvailable){
+      const skillIndex = this.selectedSkills.findIndex((skill) => skill === clearedSkill);
+      if (skillIndex !== -1) {
+        this.selectedSkills[skillIndex] = null;
         this.skills.push(clearedSkill);
         this.skills.sort((a, b) => a.id - b.id);
       }
-      this.selectedSkills = this.selectedSkills.filter(skill => skill !== clearedSkill);
     }
+  }
+
+  shouldEnableInput(index: number): boolean {
+    const emptyIndex = this.selectedSkills.findIndex(skill => !skill);
+  return emptyIndex === -1 || emptyIndex === index;
   }
 }

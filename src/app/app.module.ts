@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FilteredDropdownComponent } from './filtered-dropdown/filtered-dropdown.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FilteredDropdownComponent } from './filtered-dropdown/filtered-dropdown
   imports: [
     BrowserModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

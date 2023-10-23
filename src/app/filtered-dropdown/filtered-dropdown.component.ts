@@ -8,10 +8,16 @@ import { Skill } from '../data';
 })
 export class FilteredDropdownComponent {
   @Input() options: Skill[] = [];
+  @Input() selectedOption: Skill | null = null;
+  @Input() inputEnabled: boolean = true;
   @Output() skillSelected = new EventEmitter<Skill>();
   @Output() clearSelectedOption = new EventEmitter<Skill>();
+  @Input() set selectedOptionFromParent(option: Skill | null) {
+    if (option) {
+      this.handleOptionSelection(option);
+    }
+  }
   
-  selectedOption: Skill | null = null;
   filter: string = '';
   filteredOptions: Skill[] = [];
   isOptionSelected: boolean = false;
@@ -26,11 +32,7 @@ export class FilteredDropdownComponent {
   }
 
   onSelectOption(option: Skill) {
-    this.filter = option.name;
-    this.selectedOption = option;
-    this.filteredOptions = [];
-    this.isOptionSelected = true;
-    this.inputEmpty = false;
+    this.handleOptionSelection(option);
     this.skillSelected.emit(option);
   }
 
@@ -41,5 +43,13 @@ export class FilteredDropdownComponent {
       this.clearSelectedOption.emit(this.selectedOption); 
       this.selectedOption = null;
     }
+  }
+
+  private handleOptionSelection(option: Skill) {
+    this.filter = option.name;
+    this.selectedOption = option;
+    this.filteredOptions = [];
+    this.isOptionSelected = true;
+    this.inputEmpty = false;
   }
 }

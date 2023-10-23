@@ -2,17 +2,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <app-filtered-dropdown
-        [options]="skills"
-        (skillSelected)="onSkillSelected($event)"
-        (clearSelectedOption)="onClearSkill($event)">
-      </app-filtered-dropdown>
-      <ng-container *ngFor="let skill of selectedSkills; let i = index">
+      <ng-container *ngFor="let index of dropdownCountArray; let i = index">
         <app-filtered-dropdown
           [options]="skills"
           (skillSelected)="onSkillSelected($event)"
           (clearSelectedOption)="onClearSkill($event)"
-          *ngIf="i < maxDropdowns - 1">
+          [selectedOptionFromParent]="selectedSkills[i]"
+          [inputEnabled]="shouldEnableInput(i)"
+        >
         </app-filtered-dropdown>
       </ng-container>
     </div>
